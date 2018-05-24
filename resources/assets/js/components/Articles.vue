@@ -2,19 +2,29 @@
 
       <div>
          <h2>Articles</h2>
+
+         <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg">Add</button>
+
+         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-lg modal-dialog-centered">
+                 <div class="modal-content">
+                     <form @submit.prevent="addArticle" class="mb-3">
+                           <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Title" v-model="article.title">
+                           </div>
+                     
+                           <div class="form-group">
+                                 <textarea type="text" class="form-control" placeholder="Body" v-model="article.body"></textarea>
+                           </div>
+                     
+                           <button data-toggle="modal" data-target=".bd-example-modal-lg" type="submit" class="btn btn-light btn-block">Save</button>
+                     
+                        </form>
+                 </div>
+               </div>
+             </div>
       
-         <form @submit.prevent="addArticle" class="mb-3">
-            <div class="form-group">
-               <input type="text" class="form-control" placeholder="Title" v-model="article.title">
-            </div>
-      
-            <div class="form-group">
-                  <textarea type="text" class="form-control" placeholder="Body" v-model="article.body"></textarea>
-            </div>
-      
-            <button type="submit" class="btn btn-light btn-block">Save</button>
-      
-         </form>
+         
       
       
          <nav aria-label="Page navigation example">
@@ -29,7 +39,8 @@
             <h3>{{ article.title }}</h3>
             <p> {{ article.body }} </p>
             <hr>
-            <button @click="editArticle(article)"class="btn btn-warning mb-2">Edit</button>
+            <button @click="editArticle(article)"class="btn btn-warning mb-2" data-toggle="modal" data-target=".bd-example-modal-lg">Edit</button>
+            
             <button @click="deleteArticle(article.id)"class="btn btn-danger">Delete</button>
             
          </div>

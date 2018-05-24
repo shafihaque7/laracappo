@@ -47319,72 +47319,111 @@ var render = function() {
       _c("h2", [_vm._v("Articles")]),
       _vm._v(" "),
       _c(
-        "form",
+        "button",
         {
-          staticClass: "mb-3",
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.addArticle($event)
-            }
+          staticClass: "btn btn-primary mb-2",
+          attrs: {
+            type: "button",
+            "data-toggle": "modal",
+            "data-target": ".bd-example-modal-lg"
+          }
+        },
+        [_vm._v("Add")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade bd-example-modal-lg",
+          attrs: {
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "myLargeModalLabel",
+            "aria-hidden": "true"
           }
         },
         [
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.article.title,
-                  expression: "article.title"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Title" },
-              domProps: { value: _vm.article.title },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.article, "title", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.article.body,
-                  expression: "article.body"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Body" },
-              domProps: { value: _vm.article.body },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.article, "body", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
           _c(
-            "button",
-            {
-              staticClass: "btn btn-light btn-block",
-              attrs: { type: "submit" }
-            },
-            [_vm._v("Save")]
+            "div",
+            { staticClass: "modal-dialog modal-lg modal-dialog-centered" },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _c(
+                  "form",
+                  {
+                    staticClass: "mb-3",
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.addArticle($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.article.title,
+                            expression: "article.title"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Title" },
+                        domProps: { value: _vm.article.title },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.article, "title", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.article.body,
+                            expression: "article.body"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Body" },
+                        domProps: { value: _vm.article.body },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.article, "body", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-light btn-block",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": ".bd-example-modal-lg",
+                          type: "submit"
+                        }
+                      },
+                      [_vm._v("Save")]
+                    )
+                  ]
+                )
+              ])
+            ]
           )
         ]
       ),
@@ -47465,6 +47504,10 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-warning mb-2",
+                attrs: {
+                  "data-toggle": "modal",
+                  "data-target": ".bd-example-modal-lg"
+                },
                 on: {
                   click: function($event) {
                     _vm.editArticle(article)
@@ -47603,6 +47646,17 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
