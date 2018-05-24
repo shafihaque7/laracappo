@@ -47751,7 +47751,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (res) {
                return res.json();
             }).then(function (data) {
-               alert('Article Removed');
+               // alert('Article Removed');
                _this2.fetchArticles();
             }).catch(function (err) {
                return console.log(err);

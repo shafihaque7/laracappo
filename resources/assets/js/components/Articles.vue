@@ -101,7 +101,7 @@
                      })
                      .then(res => res.json())
                      .then(data => {
-                        alert('Article Removed');
+                        // alert('Article Removed');
                         this.fetchArticles();
                      })
                      .catch(err => console.log(err));
