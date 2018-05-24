@@ -109,6 +109,7 @@
                      })
                      .then(res =>res.json())
                      .then(data =>{
+                        
                         this.article.title='';
                         this.article.body='';
                         // alert('Article Added');
@@ -119,7 +120,7 @@
                   }
                   else{
                      // Update
-                     // this.edit = false;
+                     
                      fetch('api/article',{
                         method: 'put',
                         body: JSON.stringify(this.article),
@@ -129,12 +130,18 @@
                      })
                      .then(res =>res.json())
                      .then(data =>{
+                     
                         this.article.title='';
                         this.article.body='';
                         // alert('Article Updated');
                         this.fetchArticles();
                      })
                      .catch(err => console.log(err));
+                     this.edit = false;
+                     this.article.id = '';
+                     this.article.article_id = '';
+                     this.article.title = '';
+                     this.article.body = '';
 
                      
       
