@@ -3,7 +3,7 @@
       <div>
          <h2>Articles</h2>
 
-         <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg">Add</button>
+         <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg" @click="closeArticle()">Add</button>
 
          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -18,7 +18,7 @@
                            </div>
                      
                            <div class="modal-footer">
-                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="closeArticle()">Close</button>
                                  <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" type="submit">Save</button>
                            </div>
                            
@@ -137,9 +137,16 @@
                      .catch(err => console.log(err));
                   }
                },
+               closeArticle(){
+                  this.article.id = '';
+                  this.article.article_id = '';
+                  this.article.title = '';
+                  this.article.body = '';
+               },
       
                addArticle() {
                   if (this.edit == false){
+                     
                      // Add
                      fetch('api/article',{
                         method: 'post',
