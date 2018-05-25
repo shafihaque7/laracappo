@@ -9,15 +9,19 @@
                <div class="modal-dialog modal-lg modal-dialog-centered">
                  <div class="modal-content">
                      <form @submit.prevent="addArticle" class="mb-3">
-                           <div class="form-group">
+                           <div class="form-group modal-header">
                               <input type="text" class="form-control" placeholder="Title" v-model="article.title">
                            </div>
                      
-                           <div class="form-group">
+                           <div class="form-group modal-body">
                                  <textarea type="text" class="form-control" placeholder="Body" v-model="article.body"></textarea>
                            </div>
                      
-                           <button data-toggle="modal" data-target=".bd-example-modal-lg" type="submit" class="btn btn-light btn-block">Save</button>
+                           <div class="modal-footer">
+                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                 <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" type="submit">Save</button>
+                           </div>
+                           
                      
                         </form>
                  </div>
@@ -35,6 +39,7 @@
                </ul>
              </nav>
       
+         
          <div class="card card-body mb-2" v-for="article in articles" v-bind:key="article.id">
             <h3>{{ article.title }}</h3>
             <p> {{ article.body }} </p>
@@ -44,6 +49,8 @@
             <button @click="deleteArticle(article.id)"class="btn btn-danger">Delete</button>
             
          </div>
+         
+         
       
       </div>
       
@@ -171,5 +178,20 @@
             }
       
          }
-      
+
+         
+         
+
+      // $("document").ready(function(){
+
+      //    $('.card-body').on('click', function(){
+      //       $( "button:first" ).trigger( "click" );
+                
+      //    });
+
+      // });
+
+
+
+
       </script>

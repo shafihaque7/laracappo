@@ -47360,7 +47360,7 @@ var render = function() {
                     }
                   },
                   [
-                    _c("div", { staticClass: "form-group" }, [
+                    _c("div", { staticClass: "form-group modal-header" }, [
                       _c("input", {
                         directives: [
                           {
@@ -47384,7 +47384,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
+                    _c("div", { staticClass: "form-group modal-body" }, [
                       _c("textarea", {
                         directives: [
                           {
@@ -47408,18 +47408,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-light btn-block",
-                        attrs: {
-                          "data-toggle": "modal",
-                          "data-target": ".bd-example-modal-lg",
-                          type: "submit"
-                        }
-                      },
-                      [_vm._v("Save")]
-                    )
+                    _vm._m(0)
                   ]
                 )
               ])
@@ -47536,7 +47525,36 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: {
+            "data-toggle": "modal",
+            "data-target": ".bd-example-modal-lg",
+            type: "submit"
+          }
+        },
+        [_vm._v("Save")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -47646,6 +47664,13 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -47815,6 +47840,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          this.article.body = article.body;
       }
    }
+
+   // $("document").ready(function(){
+
+   //    $('.card-body').on('click', function(){
+   //       $( "button:first" ).trigger( "click" );
+
+   //    });
+
+   // });
 
 });
 
