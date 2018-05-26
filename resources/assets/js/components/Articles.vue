@@ -20,8 +20,7 @@
                                  <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="closeArticle()">Close</button>
                                  <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" type="submit">Save</button>
                            </div>
-                           
-                     
+
                         </form>
                  </div>
                </div>
@@ -61,7 +60,7 @@
                      <div class="d-flex justify-content-between align-items-center">
                        <div class="btn-group">
                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                         <button @click="deleteArticle(article.id)" type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                         <!-- <button @click="deleteArticle(article.id)" type="button" class="btn btn-sm btn-outline-secondary">Delete</button> -->
                        </div>
                        <small class="text-muted">9 mins</small>
                      </div>
