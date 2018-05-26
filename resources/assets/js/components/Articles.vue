@@ -53,7 +53,7 @@
          </div> -->
 
          <div class="row">
-               <div class="col-md-4" v-for="article in articles" @click="editArticle(article)"  data-toggle="modal" data-target=".bd-example-modal-lg">
+               <div class="col-md-4" v-for="article in articles" @click="editArticle(article)"  data-toggle="modal" data-target=".bd-example-modal-lg" v-bind:key="article.id">
                  <div class="card mb-4 box-shadow">
                    <div class="card-body">
                         <h5 class="card-title">{{ article.title }}</h5>
@@ -61,6 +61,7 @@
                      <div class="d-flex justify-content-between align-items-center">
                        <div class="btn-group">
                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                         <button @click="deleteArticle(article.id)" type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
                        </div>
                        <small class="text-muted">9 mins</small>
                      </div>
