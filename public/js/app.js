@@ -47642,6 +47642,8 @@ var render = function() {
       [_vm._v("Add")]
     ),
     _vm._v(" "),
+    _c("h1", [_vm._v("Hello effrain")]),
+    _vm._v(" "),
     _c(
       "div",
       {
