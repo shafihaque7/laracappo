@@ -47475,7 +47475,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
@@ -47641,8 +47640,6 @@ var render = function() {
       },
       [_vm._v("Add")]
     ),
-    _vm._v(" "),
-    _c("h1", [_vm._v("Hello effrain")]),
     _vm._v(" "),
     _c(
       "div",
