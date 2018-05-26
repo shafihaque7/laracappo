@@ -47475,6 +47475,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
@@ -47536,7 +47538,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
          }
       },
-      closeArticle: function closeArticle() {
+      clearArticle: function clearArticle() {
          this.article.id = '';
          this.article.article_id = '';
          this.article.title = '';
@@ -47634,7 +47636,7 @@ var render = function() {
         },
         on: {
           click: function($event) {
-            _vm.closeArticle()
+            _vm.clearArticle()
           }
         }
       },
@@ -47726,7 +47728,7 @@ var render = function() {
                         attrs: { type: "button", "data-dismiss": "modal" },
                         on: {
                           click: function($event) {
-                            _vm.closeArticle()
+                            _vm.clearArticle()
                           }
                         }
                       },
@@ -47822,6 +47824,7 @@ var render = function() {
         return _c(
           "div",
           {
+            key: article.id,
             staticClass: "col-md-4",
             attrs: {
               "data-toggle": "modal",
@@ -47844,7 +47847,43 @@ var render = function() {
                   _vm._v(_vm._s(article.body))
                 ]),
                 _vm._v(" "),
-                _vm._m(0, true)
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "d-flex justify-content-between align-items-center"
+                  },
+                  [
+                    _c("div", { staticClass: "btn-group" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-sm btn-outline-secondary",
+                          attrs: { type: "button" }
+                        },
+                        [_vm._v("View")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-sm btn-outline-secondary",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.deleteArticle(article.id)
+                            }
+                          }
+                        },
+                        [_vm._v("Delete")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("small", { staticClass: "text-muted" }, [
+                      _vm._v("9 mins")
+                    ])
+                  ]
+                )
               ])
             ])
           ]
@@ -47853,31 +47892,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex justify-content-between align-items-center" },
-      [
-        _c("div", { staticClass: "btn-group" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-sm btn-outline-secondary",
-              attrs: { type: "button" }
-            },
-            [_vm._v("View")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("small", { staticClass: "text-muted" }, [_vm._v("9 mins")])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

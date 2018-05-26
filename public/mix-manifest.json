@@ -1,4 +1,17 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+
+
+    "author": "PoP Vlog",
+    "background_color": "#ffffff",
+    "description": "Progressive Web App Example",
+    "display": "fullscreen",
+    "manifest_version": 2,
+    "name": "UCSC dhall",
+    "orientation": "portrait",
+    "short_name": "UCSC dhall",
+    "start_url": "/",
+    "theme_color": "#ffffff",
+    "version": "0.1"
 }
