@@ -18,7 +18,7 @@
                            </div>
                      
                            <div class="modal-footer">
-                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="clearArticle()">Close</button>
+                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                  <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" type="submit">Save</button>
                            </div>
 
