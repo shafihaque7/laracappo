@@ -15,7 +15,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <link href="{{ URL::asset('manifest.json'); }}" rel="manifest">
+        <link href="{{ URL::asset('manifest.json') }}" rel="manifest">
 
         <!-- Styles -->
 
