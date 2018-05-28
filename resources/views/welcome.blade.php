@@ -6,8 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{  csrf_token()   }}">
 
+        {{-- These are pwa stuff --}}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
         <meta name="apple-mobile-web-app-status-bar-style" content="default">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ URL::asset('iphone.png') }}">
+
+        <link href="{{ URL::asset('iphonesplash.png') }}" sizes="1125x2436" rel="apple-touch-startup-image" />
+
+
+        <link href="{{ URL::asset('manifest.json') }}" rel="manifest">
 
         <script>window.Laravel = { csrfToken: '{{  csrf_token()   }}'}
         </script> 
@@ -18,7 +26,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <link href="{{ URL::asset('manifest.json') }}" rel="manifest">
+        
 
 
        
