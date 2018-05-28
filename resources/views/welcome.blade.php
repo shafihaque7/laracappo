@@ -7,6 +7,7 @@
         <meta name="csrf-token" content="{{  csrf_token()   }}">
 
         <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ URL::asset('iphone.png') }}">
 
         <script>window.Laravel = { csrfToken: '{{  csrf_token()   }}'}
         </script> 
@@ -18,6 +19,8 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <link href="{{ URL::asset('manifest.json') }}" rel="manifest">
+
+
        
 
         <!-- Styles -->
