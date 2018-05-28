@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{  csrf_token()   }}">
 
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
         <script>window.Laravel = { csrfToken: '{{  csrf_token()   }}'}
         </script> 
 
@@ -16,6 +18,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <link href="{{ URL::asset('manifest.json') }}" rel="manifest">
+       
 
         <!-- Styles -->
 
@@ -34,7 +37,6 @@
 
 
       <script src="{{ asset('js/app.js') }}"></script>
-      <script src="{{ asset('js/index.js') }}"></script>
 
     </body>
 </html>
