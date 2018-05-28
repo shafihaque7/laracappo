@@ -3,7 +3,23 @@
       <div>
          <h2>Articles</h2>
 
-         <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg" @click="clearArticle()">Add</button>
+         <!-- <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg" @click="clearArticle()">Add</button> -->
+
+         <form @submit.prevent="addArticle" class="mb-3">
+               <div class="form-group modal-header">
+                  <input type="text" class="form-control" placeholder="Title" v-model="narticle.title">
+               </div>
+         
+               <div class="form-group modal-body">
+                     <textarea type="text" class="form-control" placeholder="Body" v-model="narticle.body"></textarea>
+               </div>
+         
+               <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" >Close</button>
+                     <button class="btn btn-primary" type="submit">Save</button>
+               </div>
+
+         </form>
 
          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -90,6 +106,11 @@
                      title: '',
                      body: ''
                   },
+                  narticle: {
+                     id: '',
+                     title: '',
+                     body: ''
+                  },
                   article_id: '',
                   pagination: {},
                   edit: false
@@ -151,7 +172,7 @@
                      // Add
                      fetch('api/article',{
                         method: 'post',
-                        body: JSON.stringify(this.article),
+                        body: JSON.stringify(this.narticle),
                         headers:{
                            'content-type': 'application/json'
                         }
@@ -159,8 +180,8 @@
                      .then(res =>res.json())
                      .then(data =>{
                         
-                        this.article.title='';
-                        this.article.body='';
+                        this.narticle.title='';
+                        this.narticle.body='';
                         // alert('Article Added');
                         this.fetchArticles();
                      })
