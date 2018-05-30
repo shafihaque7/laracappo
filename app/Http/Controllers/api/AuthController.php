@@ -69,7 +69,7 @@ class AuthController extends Controller
 		        'grant_type' => 'refresh_token',
 		        'refresh_token' => request('refresh_token'),
 		        'client_id' => '2',
-		        'client_secret' => 'SIcogjWfx8xJURFLzJVYGGrKBiRT49XA3KJplgFG',
+		        'client_secret' => '2lXecpawNu6chYGeJhuM7ElhrIrbg787FIQYF68e',
 		        'scope' => '',
 		    ],
 		]);
