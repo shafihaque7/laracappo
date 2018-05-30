@@ -11,4 +11,4 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
-app/Http/Controllers/api/AuthController.php
+/app/Http/Controllers/api/AuthController.php
