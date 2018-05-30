@@ -47486,13 +47486,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
@@ -47510,7 +47503,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          },
          article_id: '',
          pagination: {},
-         edit: false
+         edit: false,
+         search: ""
       };
    },
    created: function created() {
@@ -47622,6 +47616,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          this.article.title = article.title;
          this.article.body = article.body;
       }
+   },
+   computed: {
+      filteredArticles: function filteredArticles() {
+         var _this4 = this;
+
+         return this.articles.filter(function (article) {
+            console.log(_this4.search);
+            return article.title.toLowerCase().match(_this4.search.toLowerCase()) || article.body.toLowerCase().match(_this4.search.toLowerCase());
+         });
+      }
+
    }
 
    // $("document").ready(function(){
@@ -47693,7 +47698,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Body" },
+            attrs: { type: "text", rows: "4", placeholder: "Body" },
             domProps: { value: _vm.narticle.body },
             on: {
               input: function($event) {
@@ -47796,6 +47801,30 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
+    _c("h3", [_vm._v(" Search ")]),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.search,
+          expression: "search"
+        }
+      ],
+      staticClass: "form-control mb-4",
+      attrs: { type: "text", placeholder: "Search for..." },
+      domProps: { value: _vm.search },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.search = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
     _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
       _c("ul", { staticClass: "pagination" }, [
         _c(
@@ -47860,7 +47889,7 @@ var render = function() {
     _c(
       "div",
       { staticClass: "row" },
-      _vm._l(_vm.articles, function(article) {
+      _vm._l(_vm.filteredArticles, function(article) {
         return _c(
           "div",
           {

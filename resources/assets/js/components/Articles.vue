@@ -11,7 +11,7 @@
                </div>
          
                <div class="form-group modal-body">
-                     <textarea type="text" class="form-control" placeholder="Body" v-model="narticle.body"></textarea>
+                     <textarea type="text" rows="4" class="form-control" placeholder="Body" v-model="narticle.body"></textarea>
                </div>
          
                <div class="modal-footer">
@@ -43,8 +43,10 @@
                </div>
              </div>
 
-
-             
+             <h3> Search </h3>
+            <input type="text" v-model= "search" class="form-control mb-4" placeholder="Search for...">
+          
+               
       
          
       
@@ -58,18 +60,9 @@
              </nav>
       
          
-         <!-- <div class="card card-body mb-2" v-for="article in articles" v-bind:key="article.id">
-            <h3>{{ article.title }}</h3>
-            <p> {{ article.body }} </p>
-            <hr>
-            <button @click="editArticle(article)"class="btn btn-warning mb-2" data-toggle="modal" data-target=".bd-example-modal-lg">Edit</button>
-            
-            <button @click="deleteArticle(article.id)"class="btn btn-danger">Delete</button>
-            
-         </div> -->
 
          <div class="row">
-               <div class="col-md-4" v-for="article in articles" @click="editArticle(article)"  data-toggle="modal" data-target=".bd-example-modal-lg" v-bind:key="article.id">
+               <div class="col-md-4" v-for="article in filteredArticles" @click="editArticle(article)"  data-toggle="modal" data-target=".bd-example-modal-lg" v-bind:key="article.id">
            
                  <div class="card mb-4 box-shadow">
                    <div class="card-body">
@@ -113,7 +106,8 @@
                   },
                   article_id: '',
                   pagination: {},
-                  edit: false
+                  edit: false,
+                  search: ""
                }
             },
       
@@ -225,10 +219,18 @@
                   this.article.article_id = article.id;
                   this.article.title = article.title;
                   this.article.body = article.body;
+               },
+            },
+            computed: {
+                  filteredArticles:function(){
+                     return this.articles.filter((article) =>{
+                        console.log(this.search);
+                        return ((article.title).toLowerCase()).match(((this.search).toLowerCase())) || ((article.body).toLowerCase()).match(((this.search).toLowerCase()));
+
+                     });
+                  }
+
                }
-               
-              
-            }
       
          }
 
