@@ -47484,8 +47484,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
@@ -47513,6 +47511,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
    methods: {
+      stopEditing: function stopEditing() {
+         this.edit = false;
+      },
       fetchArticles: function fetchArticles(page_url) {
          var _this = this;
 
@@ -47546,7 +47547,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (res) {
                return res.json();
             }).then(function (data) {
-               // alert('Article Removed');
+
                _this2.fetchArticles();
             }).catch(function (err) {
                return console.log(err);
@@ -47584,6 +47585,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
          } else {
             // Update
+            console.log("Came here");
 
             fetch('api/article', {
                method: 'put',
@@ -47610,6 +47612,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          }
       },
       editArticle: function editArticle(article) {
+         $('.bd-example-modal-lg').modal('show');
          this.edit = true;
          this.article.id = article.id;
          this.article.article_id = article.id;
@@ -47628,15 +47631,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
 
    }
-
-   // $("document").ready(function(){
-
-   //    $('.card-body').on('click', function(){
-   //       $( "button:first" ).trigger( "click" );
-
-   //    });
-
-   // });
 
 });
 
@@ -47792,7 +47786,30 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(1)
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary",
+                        attrs: { type: "button", "data-dismiss": "modal" },
+                        on: { click: _vm.stopEditing }
+                      },
+                      [_vm._v("Close")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": ".bd-example-modal-lg",
+                          type: "submit"
+                        }
+                      },
+                      [_vm._v("Save")]
+                    )
+                  ])
                 ]
               )
             ])
@@ -47895,10 +47912,6 @@ var render = function() {
           {
             key: article.id,
             staticClass: "col-md-4",
-            attrs: {
-              "data-toggle": "modal",
-              "data-target": ".bd-example-modal-lg"
-            },
             on: {
               click: function($event) {
                 _vm.editArticle(article)
@@ -47927,7 +47940,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-sm btn-outline-secondary",
+                          staticClass: "btn btn-sm btn-outline-secondary view",
                           attrs: { type: "button" }
                         },
                         [_vm._v("View")]
@@ -47936,12 +47949,18 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-sm btn-outline-secondary",
-                          attrs: { type: "button" },
+                          staticClass:
+                            "btn btn-sm btn-outline-secondary delete",
+                          attrs: { id: "deleteButton", type: "button" },
                           on: {
-                            click: function($event) {
-                              _vm.deleteArticle(article.id)
-                            }
+                            click: [
+                              function($event) {
+                                $event.stopPropagation()
+                              },
+                              function($event) {
+                                _vm.deleteArticle(article.id)
+                              }
+                            ]
                           }
                         },
                         [_vm._v("Delete")]
@@ -47976,34 +47995,6 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Save")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary",
-          attrs: {
-            "data-toggle": "modal",
-            "data-target": ".bd-example-modal-lg",
-            type: "submit"
-          }
-        },
         [_vm._v("Save")]
       )
     ])

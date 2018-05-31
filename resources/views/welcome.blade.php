@@ -17,7 +17,6 @@
 
         <link href="{{ URL::asset('manifest.json') }}" rel="manifest">
 
-        {{-- <link rel="stylesheet" href="{{ URL::asset('globalstyling.css') }}"> --}}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       
 

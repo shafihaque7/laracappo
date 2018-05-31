@@ -34,7 +34,7 @@
                            </div>
                      
                            <div class="modal-footer">
-                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                 <button @click="stopEditing" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                  <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" type="submit">Save</button>
                            </div>
 
@@ -62,7 +62,7 @@
          
 
          <div class="row">
-               <div class="col-md-4" v-for="article in filteredArticles" @click="editArticle(article)"  data-toggle="modal" data-target=".bd-example-modal-lg" v-bind:key="article.id">
+               <div class="col-md-4" v-for="article in filteredArticles" @click="editArticle(article)"   v-bind:key="article.id">
            
                  <div class="card mb-4 box-shadow">
                    <div class="card-body">
@@ -70,8 +70,8 @@
                      <p class="card-text">{{ article.body }}</p>
                      <div class="d-flex justify-content-between align-items-center">
                        <div class="btn-group">
-                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                         <button @click="deleteArticle(article.id)" type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                         <button type="button" class="btn btn-sm btn-outline-secondary view">View</button>
+                         <button v-on:click.stop @click="deleteArticle(article.id)" id="deleteButton" type="button" class="btn btn-sm btn-outline-secondary delete">Delete</button>
                        </div>
                        <small class="text-muted">9 mins</small>
                      </div>
@@ -79,10 +79,8 @@
                  </div>
                </div>
          </div>
-      
-         
-                  
-             
+
+                
          
       
       </div>
@@ -116,6 +114,9 @@
             },
       
             methods: {
+               stopEditing(){
+                  this.edit = false;
+               },
                fetchArticles(page_url){
                   let vm = this;
                   page_url = page_url || 'api/articles'
@@ -147,8 +148,9 @@
                      })
                      .then(res => res.json())
                      .then(data => {
-                        // alert('Article Removed');
+
                         this.fetchArticles();
+                        
                      })
                      .catch(err => console.log(err));
                   }
@@ -178,12 +180,14 @@
                         this.narticle.body='';
                         // alert('Article Added');
                         this.fetchArticles();
+                        
                      })
                      .catch(err => console.log(err));
                      
                   }
                   else{
                      // Update
+                     console.log("Came here");
                      
                      fetch('api/article',{
                         method: 'put',
@@ -212,14 +216,17 @@
                   }
                   
                },
+               
       
                editArticle(article) {
+                  $('.bd-example-modal-lg').modal('show');
                   this.edit = true;
                   this.article.id = article.id;
                   this.article.article_id = article.id;
                   this.article.title = article.title;
                   this.article.body = article.body;
                },
+               
             },
             computed: {
                   filteredArticles:function(){
@@ -235,18 +242,6 @@
          }
 
          
-         
-
-      // $("document").ready(function(){
-
-      //    $('.card-body').on('click', function(){
-      //       $( "button:first" ).trigger( "click" );
-                
-      //    });
-
-      // });
-
-
-
 
 </script>
+
