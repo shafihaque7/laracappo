@@ -3,9 +3,9 @@
       <div>
          <h2>Articles</h2>
 
-         <!-- <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg" @click="clearArticle()">Add</button> -->
+         <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg" @click="clearArticle()">Add</button>
 
-         <form @submit.prevent="addArticle" class="mb-3">
+         <!-- <form @submit.prevent="addArticle" class="mb-3">
                <div class="form-group modal-header">
                   <input type="text" class="form-control" placeholder="Title" v-model="narticle.title">
                </div>
@@ -19,7 +19,7 @@
                      <button class="btn btn-primary" type="submit">Save</button>
                </div>
 
-         </form>
+         </form> -->
 
          <div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -164,22 +164,25 @@
                },
       
                addArticle() {
+                  
+                  
                   if (this.edit == false){
                      
                      // Add
                      fetch('api/article',{
                         method: 'post',
-                        body: JSON.stringify(this.narticle),
+                        body: JSON.stringify(this.article),
                         headers:{
                            'content-type': 'application/json'
                         }
                      })
                      .then(res =>res.json())
                      .then(data =>{
-                        
-                        this.narticle.title='';
-                        this.narticle.body='';
+                        $('.modal-backdrop').remove();
+                        this.article.title='';
+                        this.article.body='';
                         // alert('Article Added');
+
                         this.fetchArticles();
                         
                      })
@@ -199,7 +202,7 @@
                      })
                      .then(res =>res.json())
                      .then(data =>{
-                     
+                        $('.modal-backdrop').remove();
                         this.article.title='';
                         this.article.body='';
                         // alert('Article Updated');

@@ -47569,17 +47569,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             // Add
             fetch('api/article', {
                method: 'post',
-               body: JSON.stringify(this.narticle),
+               body: JSON.stringify(this.article),
                headers: {
                   'content-type': 'application/json'
                }
             }).then(function (res) {
                return res.json();
             }).then(function (data) {
-
-               _this3.narticle.title = '';
-               _this3.narticle.body = '';
+               $('.modal-backdrop').remove();
+               _this3.article.title = '';
+               _this3.article.body = '';
                // alert('Article Added');
+
                _this3.fetchArticles();
             }).catch(function (err) {
                return console.log(err);
@@ -47597,7 +47598,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (res) {
                return res.json();
             }).then(function (data) {
-
+               $('.modal-backdrop').remove();
                _this3.article.title = '';
                _this3.article.body = '';
                // alert('Article Updated');
@@ -47647,67 +47648,21 @@ var render = function() {
     _c("h2", [_vm._v("Articles")]),
     _vm._v(" "),
     _c(
-      "form",
+      "button",
       {
-        staticClass: "mb-3",
+        staticClass: "btn btn-primary mb-2",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": ".bd-example-modal-lg"
+        },
         on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.addArticle($event)
+          click: function($event) {
+            _vm.clearArticle()
           }
         }
       },
-      [
-        _c("div", { staticClass: "form-group modal-header" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.narticle.title,
-                expression: "narticle.title"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Title" },
-            domProps: { value: _vm.narticle.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.narticle, "title", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group modal-body" }, [
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.narticle.body,
-                expression: "narticle.body"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", rows: "4", placeholder: "Body" },
-            domProps: { value: _vm.narticle.body },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.narticle, "body", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ]
+      [_vm._v("Add")]
     ),
     _vm._v(" "),
     _c(
@@ -47981,26 +47936,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-secondary", attrs: { type: "button" } },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Save")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
