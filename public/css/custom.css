@@ -22,7 +22,6 @@
    }
    .modal.modal-fullscreen .modal-dialog .modal-content .modal-header, .bootstrap-fs-modal .modal .modal-dialog .modal-content .modal-header {
      justify-content: flex-start;
-     position: fixed;
      min-height: 50px;
      line-height: 50px;
      padding: 0;
