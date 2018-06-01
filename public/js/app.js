@@ -47555,6 +47555,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          }
       },
       clearArticle: function clearArticle() {
+         this.edit = false;
          this.article.id = '';
          this.article.article_id = '';
          this.article.title = '';

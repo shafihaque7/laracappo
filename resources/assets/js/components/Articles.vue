@@ -156,6 +156,7 @@
                   }
                },
                clearArticle(){
+                  this.edit=false;
                   this.article.id = '';
                   this.article.article_id = '';
                   this.article.title = '';
