@@ -47485,18 +47485,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
@@ -47627,7 +47615,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          }
       },
       editArticle: function editArticle(article) {
-         $('.bd-example-modal-lg').modal('show');
+         $('#modalLarge').modal('show');
          this.edit = true;
          this.article.id = article.id;
          this.article.article_id = article.id;
@@ -47667,7 +47655,7 @@ var render = function() {
         attrs: {
           type: "button",
           "data-toggle": "modal",
-          "data-target": ".bd-example-modal-lg"
+          "data-target": "#modalLarge"
         },
         on: {
           click: function($event) {
@@ -47679,82 +47667,109 @@ var render = function() {
     ),
     _vm._v(" "),
     _c(
-      "div",
+      "form",
       {
-        staticClass: "modal bd-example-modal-lg",
-        attrs: {
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "myLargeModalLabel",
-          "aria-hidden": "true"
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.addArticle($event)
+          }
         }
       },
       [
         _c(
           "div",
-          { staticClass: "modal-dialog modal-lg modal-dialog-centered" },
+          {
+            staticClass: "modal fade modal-fullscreen",
+            attrs: {
+              id: "modalLarge",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "modalLargeLabel",
+              "aria-hidden": "true"
+            }
+          },
           [
-            _c("div", { staticClass: "modal-content" }, [
-              _c(
-                "form",
-                {
-                  staticClass: "mb-3",
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.addArticle($event)
-                    }
-                  }
-                },
-                [
-                  _c("div", { staticClass: "form-group modal-header" }, [
-                    _c("input", {
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _c("div", { staticClass: "modal-header" }, [
+                    _c(
+                      "h5",
+                      {
+                        staticClass: "modal-title",
+                        attrs: { id: "modalLargeLabel" }
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.article.title,
+                              expression: "article.title"
+                            }
+                          ],
+                          domProps: { value: _vm.article.title },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.article,
+                                "title",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "close",
+                        attrs: {
+                          type: "button",
+                          "data-dismiss": "modal",
+                          "aria-label": "Close"
+                        },
+                        on: { click: _vm.stopEditing }
+                      },
+                      [
+                        _c("span", { attrs: { "aria-hidden": "true" } }, [
+                          _vm._v("×")
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("textarea", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.article.title,
-                          expression: "article.title"
+                          value: _vm.article.body,
+                          expression: "article.body"
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "text", placeholder: "Title" },
-                      domProps: { value: _vm.article.title },
+                      attrs: { rows: "5" },
+                      domProps: { value: _vm.article.body },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.article, "title", $event.target.value)
+                          _vm.$set(_vm.article, "body", $event.target.value)
                         }
                       }
                     })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group modal-body" }, [
-                    _c("code", [
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.article.body,
-                            expression: "article.body"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Body" },
-                        domProps: { value: _vm.article.body },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.article, "body", $event.target.value)
-                          }
-                        }
-                      })
-                    ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-footer" }, [
@@ -47771,19 +47786,19 @@ var render = function() {
                     _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn btn-secondary",
                         attrs: {
+                          type: "submit",
                           "data-toggle": "modal",
-                          "data-target": ".bd-example-modal-lg",
-                          type: "submit"
+                          "data-target": "#modalLarge"
                         }
                       },
-                      [_vm._v("Save")]
+                      [_vm._v("Submit")]
                     )
                   ])
-                ]
-              )
-            ])
+                ])
+              ]
+            )
           ]
         )
       ]
@@ -47947,127 +47962,10 @@ var render = function() {
           ]
         )
       })
-    ),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-block btn-primary",
-        attrs: {
-          type: "button",
-          "data-toggle": "modal",
-          "data-target": "#modalLarge"
-        }
-      },
-      [_vm._v("\n         Large Demo Modal\n     ")]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade modal-fullscreen",
-        attrs: {
-          id: "modalLarge",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "modalLargeLabel",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "modal-dialog", attrs: { role: "document" } },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.article.body,
-                    expression: "article.body"
-                  }
-                ],
-                staticClass: "form-control",
-                domProps: { value: _vm.article.body },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.article, "body", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm._m(1)
-            ])
-          ]
-        )
-      ]
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "modalLargeLabel" } },
-        [_vm._v("Modal with large content")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-default",
-          attrs: { type: "button", id: "btnTestSaveLarge" }
-        },
-        [
-          _c("span", { staticClass: "d-none d-md-inline" }, [
-            _vm._v("Save changes")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "d-md-none" }, [_vm._v("Save")])
-        ]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

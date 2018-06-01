@@ -2,30 +2,43 @@
 
       <div>
          <h2>Articles</h2>
-
-         <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg" @click="clearArticle()">Add</button>
-
-         <div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-               <div class="modal-dialog modal-lg modal-dialog-centered">
-                 <div class="modal-content">
-                     <form @submit.prevent="addArticle" class="mb-3">
-                           <div class="form-group modal-header">
-                             <input type="text" class="form-control" placeholder="Title" v-model="article.title">
-                           </div>
+         <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modalLarge" @click="clearArticle()">Add</button>
+           <form @submit.prevent="addArticle">
+           <div class="modal fade modal-fullscreen" id="modalLarge" tabindex="-1" role="dialog" aria-labelledby="modalLargeLabel" aria-hidden="true">
+               
+               <div class="modal-dialog" role="document">
                      
-                           <div class="form-group modal-body">
-                                 <code><textarea type="text" class="form-control" placeholder="Body" v-model="article.body"></textarea></code>
-                           </div>
-                     
-                           <div class="modal-footer">
-                                 <button @click="stopEditing" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                 <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" type="submit">Save</button>
-                           </div>
+                   <div class="modal-content">
+                       <div class="modal-header">
+                         
+                           <h5 class="modal-title" id="modalLargeLabel"><input v-model="article.title"></h5>
 
-                        </form>
-                 </div>
+                           <button @click="stopEditing" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                           </button>
+
+                       </div>
+                       
+                        <div class="modal-body">
+                                 <textarea class="form-control" rows="5" v-model="article.body"></textarea>
+                        </div>
+
+                       
+                       <div class="modal-footer">
+                           <button @click="stopEditing" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                           <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#modalLarge" >Submit</button>
+
+                          
+                       </div>
+                   </div>
+                  
                </div>
-             </div>
+              
+           </div>
+         </form>
+
+
 
              <h3> Search </h3>
             <input type="text" v-model= "search" class="form-control mb-4" placeholder="Search for...">
@@ -66,32 +79,7 @@
 
          <!-- This is for testing -->
 
-         <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modalLarge">
-               Large Demo Modal
-           </button>
-
-           <div class="modal fade modal-fullscreen" id="modalLarge" tabindex="-1" role="dialog" aria-labelledby="modalLargeLabel" aria-hidden="true">
-               <div class="modal-dialog" role="document">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <h5 class="modal-title" id="modalLargeLabel">Modal with large content</h5>
-                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                               <span aria-hidden="true">&times;</span>
-                           </button>
-                       </div>
-                       
-                           <textarea class="form-control" v-model="article.body"></textarea>
-                       
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                           <button type="button" id="btnTestSaveLarge" class="btn btn-default">
-                               <span class="d-none d-md-inline">Save changes</span>
-                               <span class="d-md-none">Save</span>
-                           </button>
-                       </div>
-                   </div>
-               </div>
-           </div>
+         
 
                 
          
@@ -236,7 +224,7 @@
                
       
                editArticle(article) {
-                  $('.bd-example-modal-lg').modal('show');
+                  $('#modalLarge').modal('show');
                   this.edit = true;
                   this.article.id = article.id;
                   this.article.article_id = article.id;
