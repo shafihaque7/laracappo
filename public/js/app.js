@@ -47468,6 +47468,74 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
@@ -47918,10 +47986,139 @@ var render = function() {
           ]
         )
       })
-    )
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-block btn-primary",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": "#modalLarge"
+        }
+      },
+      [_vm._v("\n         Large Demo Modal\n     ")]
+    ),
+    _vm._v(" "),
+    _vm._m(0)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade modal-fullscreen",
+        attrs: {
+          id: "modalLarge",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "modalLargeLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "modalLargeLabel" }
+                  },
+                  [_vm._v("Modal with large content")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("p", [
+                  _vm._v(
+                    "\n                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed dui tempor, finibus ligula vitae, convallis mi. Sed posuere\n                         at neque nec hendrerit. Sed vitae felis gravida, ultricies dui eget, venenatis leo. Nunc hendrerit tellus\n                         non velit malesuada, eu dapibus sapien placerat. Sed non viverra magna, sit amet ornare erat. Fusce eros\n                         mi, consequat ac elit vel, ullamcorper molestie mauris. Proin auctor orci eget lacinia condimentum. Phasellus\n                         ultricies ligula id lacinia posuere. Nulla rutrum eros eu arcu tempor, imperdiet ornare lectus convallis.\n                         Nulla eleifend dapibus sem, vel viverra sapien.\n                     "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                         Integer interdum ex augue, vel egestas nibh fermentum eu. Cras ut erat eu nisi ullamcorper scelerisque vitae in lorem. In\n                         hac habitasse platea dictumst. Pellentesque in ante aliquam, porta metus eu, viverra magna. Cras blandit,\n                         augue in consequat rhoncus, nulla risus sodales mi, at tincidunt dolor leo semper mauris. Class aptent\n                         taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus pellentesque purus\n                         porta maximus blandit. Suspendisse id lorem pellentesque, vehicula nulla at, congue eros. Duis eleifend\n                         semper sodales. Morbi eu sagittis ex. Praesent commodo rhoncus nisi. Aenean quis arcu mauris.\n                     "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                         Donec eget ex ut nibh ullamcorper commodo. Aenean ac faucibus mi. Nullam luctus dui diam, in congue sem fringilla et. Vivamus\n                         non metus at elit ornare maximus. Nam iaculis ex in dolor rutrum, at facilisis dolor euismod. Sed lacinia\n                         sagittis lobortis. Suspendisse turpis tellus, pharetra scelerisque odio eget, condimentum tempus nibh.\n                         Praesent in diam ac sapien dignissim luctus a quis sapien. Duis sed lacus magna. Maecenas at fringilla\n                         quam. Ut purus risus, ultricies eget risus ut, convallis hendrerit eros. Fusce vehicula libero quam,\n                         nec cursus nulla interdum eu. Quisque commodo suscipit justo, id auctor metus varius rutrum.\n                     "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                         Integer et fermentum sapien. Proin eu eros efficitur, malesuada ipsum vel, tincidunt risus. Proin cursus laoreet varius.\n                         Donec eros sapien, accumsan ac facilisis id, egestas quis turpis. Mauris dignissim, sem et pellentesque\n                         consequat, erat dui tempus nulla, ut laoreet neque ligula ac libero. Interdum et malesuada fames ac ante\n                         ipsum primis in faucibus. Mauris dictum accumsan erat et tempus. Pellentesque ac ipsum at dui blandit\n                         mollis. Suspendisse a turpis non velit commodo iaculis. Donec sit amet sem risus. Nunc pharetra lacus\n                         vitae faucibus mattis. Vestibulum molestie, quam et efficitur consequat, dui nibh pulvinar sapien, sit\n                         amet pharetra mauris sem sed massa.\n                     "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                         In tempus neque vitae magna congue, convallis blandit dolor mollis. Fusce rutrum in diam ac pretium. Vivamus sagittis, elit\n                         at cursus lacinia, mauris urna feugiat quam, et tincidunt nulla justo eget dui. Nullam malesuada felis\n                         quis dolor aliquam scelerisque. Maecenas porta, neque sit amet auctor bibendum, urna nibh porta enim,\n                         et auctor turpis ligula vel quam. In vulputate eu erat quis bibendum. Mauris vel felis luctus, ultricies\n                         nulla ac, euismod diam.\n                     "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-default",
+                    attrs: { type: "button", id: "btnTestSaveLarge" }
+                  },
+                  [
+                    _c("span", { staticClass: "d-none d-md-inline" }, [
+                      _vm._v("Save changes")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "d-md-none" }, [_vm._v("Save")])
+                  ]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
