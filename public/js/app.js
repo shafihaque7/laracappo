@@ -47962,15 +47962,7 @@ var render = function() {
       [_vm._v("\n         Large Demo Modal\n     ")]
     ),
     _vm._v(" "),
-    _vm._m(0)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+    _c(
       "div",
       {
         staticClass: "modal fade modal-fullscreen",
@@ -47988,72 +47980,92 @@ var staticRenderFns = [
           { staticClass: "modal-dialog", attrs: { role: "document" } },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
+              _vm._m(0),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
                   {
-                    staticClass: "modal-title",
-                    attrs: { id: "modalLargeLabel" }
-                  },
-                  [_vm._v("Modal with large content")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "data-dismiss": "modal",
-                      "aria-label": "Close"
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.article.body,
+                    expression: "article.body"
+                  }
+                ],
+                staticClass: "form-control",
+                domProps: { value: _vm.article.body },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
-                  ]
-                )
-              ]),
+                    _vm.$set(_vm.article, "body", $event.target.value)
+                  }
+                }
+              }),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("textarea", {
-                  staticClass: "form-control",
-                  staticStyle: { "min-width": "100%" },
-                  attrs: { rows: "8" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary",
-                    attrs: { type: "button", "data-dismiss": "modal" }
-                  },
-                  [_vm._v("Close")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-default",
-                    attrs: { type: "button", id: "btnTestSaveLarge" }
-                  },
-                  [
-                    _c("span", { staticClass: "d-none d-md-inline" }, [
-                      _vm._v("Save changes")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "d-md-none" }, [_vm._v("Save")])
-                  ]
-                )
-              ])
+              _vm._m(1)
             ])
           ]
         )
       ]
     )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "modalLargeLabel" } },
+        [_vm._v("Modal with large content")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-default",
+          attrs: { type: "button", id: "btnTestSaveLarge" }
+        },
+        [
+          _c("span", { staticClass: "d-none d-md-inline" }, [
+            _vm._v("Save changes")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "d-md-none" }, [_vm._v("Save")])
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true

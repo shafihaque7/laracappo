@@ -79,9 +79,9 @@
                                <span aria-hidden="true">&times;</span>
                            </button>
                        </div>
-                       <div class="modal-body">
-                           <textarea class="form-control" rows="8" style="min-width: 100%"></textarea>
-                       </div>
+                       
+                           <textarea class="form-control" v-model="article.body"></textarea>
+                       
                        <div class="modal-footer">
                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                            <button type="button" id="btnTestSaveLarge" class="btn btn-default">
