@@ -20,7 +20,7 @@
                        </div>
                        
                         <div class="modal-body">
-                                 <textarea class="form-control" rows="5" v-model="article.body"></textarea>
+                                 <textarea id="largetextarea"class="form-control" rows="10" v-model="article.body"></textarea>
                         </div>
 
                        

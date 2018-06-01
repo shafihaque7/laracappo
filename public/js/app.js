@@ -47759,7 +47759,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { rows: "5" },
+                      attrs: { id: "largetextarea", rows: "10" },
                       domProps: { value: _vm.article.body },
                       on: {
                         input: function($event) {
