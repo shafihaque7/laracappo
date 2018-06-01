@@ -12,17 +12,15 @@
                        <div class="modal-header">
                          
                            <h5 class="modal-title" id="modalLargeLabel"><input v-model="article.title"></h5>
+  
 
                            <button @click="stopEditing" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                            </button>
 
                        </div>
-                       
-                        <!-- <div class="modal-body"> -->
-                                 <textarea id="largetextarea"class="form-control" rows="10" v-model="article.body"></textarea>
-                        <!-- </div> -->
-
+                        
+                           <textarea id="largetextarea"class="form-control" rows="10" v-model="article.body"></textarea>
                        
                        <div class="modal-footer">
                            <button @click="stopEditing" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -38,16 +36,9 @@
            </div>
          </form>
 
-
-
              <h3> Search </h3>
             <input type="text" v-model= "search" class="form-control mb-4" placeholder="Search for...">
           
-               
-      
-         
-      
-      
          <nav aria-label="Page navigation example">
                <ul class="pagination">
                  <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item"><a class="page-link" href="#" @click="fetchArticles(pagination.prev_page_url)">Previous</a></li>
@@ -76,14 +67,6 @@
                  </div>
                </div>
          </div>
-
-         <!-- This is for testing -->
-
-         
-
-                
-         
-      
       </div>
       
       </template>
