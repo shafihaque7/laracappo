@@ -47468,33 +47468,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
       return {
          articles: [],
+         sarticles: [], // This is used for shortened articles
          article: {
-            id: '',
-            title: '',
-            body: ''
-         },
-         narticle: {
             id: '',
             title: '',
             body: ''
@@ -47522,7 +47502,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          fetch(page_url).then(function (res) {
             return res.json();
          }).then(function (res) {
+
             _this.articles = res.data;
+
             vm.makePagination(res.meta, res.links);
          }).catch(function (err) {
             return console.log(err);
@@ -47541,16 +47523,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       deleteArticle: function deleteArticle(id) {
          var _this2 = this;
 
-         fetch('api/article/' + id, {
-            method: 'delete'
-         }).then(function (res) {
-            return res.json();
-         }).then(function (data) {
+         if (confirm('Are you Sure?')) {
+            fetch('api/article/' + id, {
+               method: 'delete'
+            }).then(function (res) {
+               return res.json();
+            }).then(function (data) {
 
-            _this2.fetchArticles();
-         }).catch(function (err) {
-            return console.log(err);
-         });
+               _this2.fetchArticles();
+            }).catch(function (err) {
+               return console.log(err);
+            });
+         }
       },
       clearArticle: function clearArticle() {
          this.edit = false;
@@ -47717,27 +47701,29 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group modal-body" }, [
-                    _c("textarea", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.article.body,
-                          expression: "article.body"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", placeholder: "Body" },
-                      domProps: { value: _vm.article.body },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                    _c("code", [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.article.body,
+                            expression: "article.body"
                           }
-                          _vm.$set(_vm.article, "body", $event.target.value)
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Body" },
+                        domProps: { value: _vm.article.body },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.article, "body", $event.target.value)
+                          }
                         }
-                      }
-                    })
+                      })
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-footer" }, [
@@ -47880,7 +47866,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
-                  _vm._v(_vm._s(article.body))
+                  _vm._v(_vm._s(article.sbody))
                 ]),
                 _vm._v(" "),
                 _c(

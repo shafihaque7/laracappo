@@ -5,32 +5,16 @@
 
          <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target=".bd-example-modal-lg" @click="clearArticle()">Add</button>
 
-         <!-- <form @submit.prevent="addArticle" class="mb-3">
-               <div class="form-group modal-header">
-                  <input type="text" class="form-control" placeholder="Title" v-model="narticle.title">
-               </div>
-         
-               <div class="form-group modal-body">
-                     <textarea type="text" rows="4" class="form-control" placeholder="Body" v-model="narticle.body"></textarea>
-               </div>
-         
-               <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" >Close</button>
-                     <button class="btn btn-primary" type="submit">Save</button>
-               </div>
-
-         </form> -->
-
          <div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                <div class="modal-dialog modal-lg modal-dialog-centered">
                  <div class="modal-content">
                      <form @submit.prevent="addArticle" class="mb-3">
                            <div class="form-group modal-header">
-                              <input type="text" class="form-control" placeholder="Title" v-model="article.title">
+                             <input type="text" class="form-control" placeholder="Title" v-model="article.title">
                            </div>
                      
                            <div class="form-group modal-body">
-                                 <textarea type="text" class="form-control" placeholder="Body" v-model="article.body"></textarea>
+                                 <code><textarea type="text" class="form-control" placeholder="Body" v-model="article.body"></textarea></code>
                            </div>
                      
                            <div class="modal-footer">
@@ -67,7 +51,7 @@
                  <div class="card mb-4 box-shadow">
                    <div class="card-body">
                         <h5 class="card-title">{{ article.title }}</h5>
-                     <p class="card-text">{{ article.body }}</p>
+                     <p class="card-text">{{ article.sbody }}</p>
                      <div class="d-flex justify-content-between align-items-center">
                        <div class="btn-group">
                          <button type="button" class="btn btn-sm btn-outline-secondary view">View</button>
@@ -92,12 +76,8 @@
             data() {
                return {
                   articles: [],
+                  sarticles: [], // This is used for shortened articles
                   article: {
-                     id: '',
-                     title: '',
-                     body: ''
-                  },
-                  narticle: {
                      id: '',
                      title: '',
                      body: ''
@@ -123,7 +103,10 @@
                   fetch(page_url)
                   .then(res => res.json())
                   .then(res => {
+                    
                      this.articles = res.data;
+
+         
                      vm.makePagination(res.meta, res.links);
                   })
                   .catch(err => console.log(err));
@@ -141,17 +124,19 @@
                },
       
                deleteArticle(id){
-                  fetch(`api/article/${id}`, {
-                     method: 'delete'
-                  })
-                  .then(res => res.json())
-                  .then(data => {
+      
+                  if(confirm('Are you Sure?')){
+                     fetch(`api/article/${id}`, {
+                        method: 'delete'
+                     })
+                     .then(res => res.json())
+                     .then(data => {
 
-                     this.fetchArticles();
-                     
-                  })
-                  .catch(err => console.log(err));
-                  
+                        this.fetchArticles();
+                        
+                     })
+                     .catch(err => console.log(err));
+                  }
                },
                clearArticle(){
                   this.edit=false;
