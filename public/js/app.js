@@ -47713,7 +47713,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "modal fade bd-example-modal-lg",
+        staticClass: "modal bd-example-modal-lg",
         attrs: {
           tabindex: "-1",
           role: "dialog",
