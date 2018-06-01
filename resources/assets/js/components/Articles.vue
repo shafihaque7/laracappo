@@ -71,7 +71,7 @@
                      <div class="d-flex justify-content-between align-items-center">
                        <div class="btn-group">
                          <button type="button" class="btn btn-sm btn-outline-secondary view">View</button>
-                         <button v-on:click.stop @click="deleteArticle(article.id)" id="deleteButton" type="button" class="btn btn-sm btn-outline-secondary delete">Delete</button>
+                         <button type="button" class="btn btn-sm btn-outline-secondary delete" v-on:click.stop @click="deleteArticle(article.id)" id="deleteButton" >Delete</button>
                        </div>
                        <small class="text-muted">9 mins</small>
                      </div>

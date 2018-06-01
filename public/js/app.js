@@ -47907,7 +47907,7 @@ var render = function() {
                         {
                           staticClass:
                             "btn btn-sm btn-outline-secondary delete",
-                          attrs: { id: "deleteButton", type: "button" },
+                          attrs: { type: "button", id: "deleteButton" },
                           on: {
                             click: [
                               function($event) {
