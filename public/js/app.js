@@ -47541,18 +47541,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       deleteArticle: function deleteArticle(id) {
          var _this2 = this;
 
-         if (confirm('Are you Sure?')) {
-            fetch('api/article/' + id, {
-               method: 'delete'
-            }).then(function (res) {
-               return res.json();
-            }).then(function (data) {
+         fetch('api/article/' + id, {
+            method: 'delete'
+         }).then(function (res) {
+            return res.json();
+         }).then(function (data) {
 
-               _this2.fetchArticles();
-            }).catch(function (err) {
-               return console.log(err);
-            });
-         }
+            _this2.fetchArticles();
+         }).catch(function (err) {
+            return console.log(err);
+         });
       },
       clearArticle: function clearArticle() {
          this.edit = false;

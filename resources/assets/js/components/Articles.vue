@@ -141,19 +141,17 @@
                },
       
                deleteArticle(id){
-      
-                  if(confirm('Are you Sure?')){
-                     fetch(`api/article/${id}`, {
-                        method: 'delete'
-                     })
-                     .then(res => res.json())
-                     .then(data => {
+                  fetch(`api/article/${id}`, {
+                     method: 'delete'
+                  })
+                  .then(res => res.json())
+                  .then(data => {
 
-                        this.fetchArticles();
-                        
-                     })
-                     .catch(err => console.log(err));
-                  }
+                     this.fetchArticles();
+                     
+                  })
+                  .catch(err => console.log(err));
+                  
                },
                clearArticle(){
                   this.edit=false;
