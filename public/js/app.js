@@ -47539,12 +47539,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       clearArticle: function clearArticle() {
          this.edit = false;
          this.article.id = '';
-         this.article.article_id = '';
+         this.article_id = '';
          this.article.title = '';
          this.article.body = '';
       },
       addArticle: function addArticle() {
          var _this3 = this;
+
+         this.search = "";
 
          if (this.edit == false) {
 
@@ -47880,7 +47882,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-sm btn-outline-secondary view",
+                          staticClass: "btn btn-sm btn-outline-secondary",
                           attrs: { type: "button" }
                         },
                         [_vm._v("View")]
@@ -47889,8 +47891,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass:
-                            "btn btn-sm btn-outline-secondary delete",
+                          staticClass: "btn btn-sm btn-outline-secondary",
                           attrs: { type: "button", id: "deleteButton" },
                           on: {
                             click: [

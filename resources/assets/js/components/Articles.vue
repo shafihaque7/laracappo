@@ -54,8 +54,8 @@
                      <p class="card-text">{{ article.sbody }}</p>
                      <div class="d-flex justify-content-between align-items-center">
                        <div class="btn-group">
-                         <button type="button" class="btn btn-sm btn-outline-secondary view">View</button>
-                         <button type="button" class="btn btn-sm btn-outline-secondary delete" v-on:click.stop @click="deleteArticle(article.id)" id="deleteButton" >Delete</button>
+                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                         <button type="button" class="btn btn-sm btn-outline-secondary" v-on:click.stop @click="deleteArticle(article.id)" id="deleteButton" >Delete</button>
                        </div>
                        <small class="text-muted">9 mins</small>
                      </div>
@@ -141,12 +141,13 @@
                clearArticle(){
                   this.edit=false;
                   this.article.id = '';
-                  this.article.article_id = '';
+                  this.article_id = '';
                   this.article.title = '';
                   this.article.body = '';
                },
       
                addArticle() {
+                  this.search = "";
                   
                   
                   if (this.edit == false){
