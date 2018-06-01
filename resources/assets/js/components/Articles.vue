@@ -19,9 +19,9 @@
 
                        </div>
                        
-                        <div class="modal-body">
+                        <!-- <div class="modal-body"> -->
                                  <textarea id="largetextarea"class="form-control" rows="10" v-model="article.body"></textarea>
-                        </div>
+                        <!-- </div> -->
 
                        
                        <div class="modal-footer">

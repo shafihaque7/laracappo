@@ -47748,29 +47748,27 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "modal-body" }, [
-                    _c("textarea", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.article.body,
-                          expression: "article.body"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { id: "largetextarea", rows: "10" },
-                      domProps: { value: _vm.article.body },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.article, "body", $event.target.value)
-                        }
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.article.body,
+                        expression: "article.body"
                       }
-                    })
-                  ]),
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "largetextarea", rows: "10" },
+                    domProps: { value: _vm.article.body },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.article, "body", $event.target.value)
+                      }
+                    }
+                  }),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-footer" }, [
                     _c(
