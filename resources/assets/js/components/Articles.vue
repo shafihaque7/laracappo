@@ -3,15 +3,17 @@
       <div>
          <h2>Articles</h2>
          <button type="button" class="btn btn-primary mb-2" @click="clearArticle()">Add</button>
+
            <form @submit.prevent="addArticle">
-           <div class="modal fade modal-fullscreen" id="modalLarge" tabindex="-1" role="dialog" aria-labelledby="modalLargeLabel" aria-hidden="true">
+           <div class="modal modal-fullscreen" id="modalLarge" tabindex="-1" role="dialog" aria-labelledby="modalLargeLabel" aria-hidden="true">
                
                <div class="modal-dialog" role="document">
                      
                    <div class="modal-content">
                        <div class="modal-header">
                            <h5 class="modal-title" type="text" id="modalLargeLabel"><input v-model="article.title" placeholder="Title"></h5>
-                           <button @click="stopEditing" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <!-- <button @click="stopEditing" type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+                                 <button type="submit" class="close" >
                                <span aria-hidden="true">&times;</span>
                            </button>
 
@@ -20,9 +22,9 @@
                            <textarea type="text" id="largetextarea"class="form-control" rows="10" v-model="article.body" placeholder="Body"></textarea>
                        
                        <div class="modal-footer">
-                           <button @click="stopEditing" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                           <!-- <button @click="stopEditing" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
 
-                           <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#modalLarge" >Submit</button>
+                           <button type="submit" class="btn btn-secondary" aria-hidden="true" data-toggle="modal" data-target="#modalLarge" >Save</button>
 
                           
                        </div>
@@ -144,6 +146,13 @@
          
                   addArticle() {
                      this.search = "";
+                     if (this.article.body=="" && this.article.title==""){
+                        $('#modalLarge').modal('hide');
+                           $('body').removeClass('modal-open');
+                           $('.modal-backdrop').remove();
+                        return;
+                     }
+                     
                      
                      
                      if (this.edit == false){

@@ -47465,6 +47465,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
@@ -47544,6 +47546,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          var _this3 = this;
 
          this.search = "";
+         if (this.article.body == "" && this.article.title == "") {
+            $('#modalLarge').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+            return;
+         }
 
          if (this.edit == false) {
 
@@ -47660,7 +47668,7 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "modal fade modal-fullscreen",
+            staticClass: "modal modal-fullscreen",
             attrs: {
               id: "modalLarge",
               tabindex: "-1",
@@ -47710,23 +47718,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "close",
-                        attrs: {
-                          type: "button",
-                          "data-dismiss": "modal",
-                          "aria-label": "Close"
-                        },
-                        on: { click: _vm.stopEditing }
-                      },
-                      [
-                        _c("span", { attrs: { "aria-hidden": "true" } }, [
-                          _vm._v("×")
-                        ])
-                      ]
-                    )
+                    _vm._m(0)
                   ]),
                   _vm._v(" "),
                   _c("textarea", {
@@ -47756,30 +47748,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "modal-footer" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-secondary",
-                        attrs: { type: "button", "data-dismiss": "modal" },
-                        on: { click: _vm.stopEditing }
-                      },
-                      [_vm._v("Close")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-secondary",
-                        attrs: {
-                          type: "submit",
-                          "data-toggle": "modal",
-                          "data-target": "#modalLarge"
-                        }
-                      },
-                      [_vm._v("Submit")]
-                    )
-                  ])
+                  _vm._m(1)
                 ])
               ]
             )
@@ -47949,7 +47918,36 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "close", attrs: { type: "submit" } }, [
+      _c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: {
+            type: "submit",
+            "aria-hidden": "true",
+            "data-toggle": "modal",
+            "data-target": "#modalLarge"
+          }
+        },
+        [_vm._v("Save")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
