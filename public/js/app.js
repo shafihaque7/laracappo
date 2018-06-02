@@ -47557,6 +47557,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (res) {
                return res.json();
             }).then(function (data) {
+
+               $('#modalLarge').modal('hide');
+               $('body').removeClass('modal-open');
                $('.modal-backdrop').remove();
                _this3.article.title = '';
                _this3.article.body = '';
@@ -47583,6 +47586,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                _this3.article.body = '';
                // alert('Article Updated');
                $('#modalLarge').modal('hide');
+               $('body').removeClass('modal-open');
+               $('.modal-backdrop').remove();
                _this3.fetchArticles();
             }).catch(function (err) {
                return console.log(err);

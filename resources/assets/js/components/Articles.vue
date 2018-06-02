@@ -158,6 +158,9 @@
                         })
                         .then(res =>res.json())
                         .then(data =>{
+                           
+                           $('#modalLarge').modal('hide');
+                           $('body').removeClass('modal-open');
                            $('.modal-backdrop').remove();
                            this.article.title='';
                            this.article.body='';
@@ -186,6 +189,8 @@
                            this.article.body='';
                            // alert('Article Updated');
                            $('#modalLarge').modal('hide');
+                           $('body').removeClass('modal-open');
+                           $('.modal-backdrop').remove();
                            this.fetchArticles();
                         })
                         .catch(err => console.log(err));
