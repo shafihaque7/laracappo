@@ -96,6 +96,9 @@
                methods: {
                   stopEditing(){
                      this.edit = false;
+                     $('#modalLarge').modal('hide');
+                     $('body').removeClass('modal-open');
+                     $('.modal-backdrop').remove();
                   },
                   fetchArticles(page_url){
                      this.current_page_url = page_url;

@@ -47493,6 +47493,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
    methods: {
       stopEditing: function stopEditing() {
          this.edit = false;
+         $('#modalLarge').modal('hide');
+         $('body').removeClass('modal-open');
+         $('.modal-backdrop').remove();
       },
       fetchArticles: function fetchArticles(page_url) {
          var _this = this;
