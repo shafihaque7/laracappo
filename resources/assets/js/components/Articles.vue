@@ -12,7 +12,7 @@
                    <div class="modal-content">
                        <div class="modal-header">
                            <h5 class="modal-title" type="text" id="modalLargeLabel"><input v-model="article.title" placeholder="Title"></h5>
-                           <button @click="stopEditing" type="button" class="close" aria-label="Close">
+                           <button @click="stopEditing" class="close" aria-label="Close">
                                  <!-- <button class="close" > -->
                                <span aria-hidden="true">&times;</span>
                            </button>
@@ -95,10 +95,10 @@
          
                methods: {
                   stopEditing(){
-                     this.edit = false;
                      $('#modalLarge').modal('hide');
                      $('body').removeClass('modal-open');
                      $('.modal-backdrop').remove();
+                     this.edit = false;
                   },
                   fetchArticles(page_url){
                      this.current_page_url = page_url;

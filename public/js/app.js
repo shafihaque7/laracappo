@@ -47492,10 +47492,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
    methods: {
       stopEditing: function stopEditing() {
-         this.edit = false;
          $('#modalLarge').modal('hide');
          $('body').removeClass('modal-open');
          $('.modal-backdrop').remove();
+         this.edit = false;
       },
       fetchArticles: function fetchArticles(page_url) {
          var _this = this;
@@ -47727,7 +47727,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "close",
-                        attrs: { type: "button", "aria-label": "Close" },
+                        attrs: { "aria-label": "Close" },
                         on: { click: _vm.stopEditing }
                       },
                       [
