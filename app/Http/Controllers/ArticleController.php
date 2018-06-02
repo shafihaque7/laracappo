@@ -41,6 +41,7 @@ class ArticleController extends Controller
         $article->id = $request->input('article_id');
         $article->title = $request->input('title');
         $article->body = $request->input('body');
+        $article->label = "random";
 
         if ($article->save()){
            return new ArticleResource($article);
