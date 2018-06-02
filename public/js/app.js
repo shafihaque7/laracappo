@@ -47923,7 +47923,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("small", { staticClass: "text-muted" }, [
-                      _vm._v("9 mins")
+                      _vm._v(_vm._s(article.label))
                     ])
                   ]
                 )

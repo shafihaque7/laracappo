@@ -60,7 +60,7 @@
                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                          <button type="button" class="btn btn-sm btn-outline-secondary" v-on:click.stop @click="deleteArticle(article.id)" id="deleteButton" >Delete</button>
                        </div>
-                       <small class="text-muted">9 mins</small>
+                       <small class="text-muted">{{ article.label }}</small>
                      </div>
                    </div>
                  </div>
