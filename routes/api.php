@@ -25,6 +25,8 @@ Route::apiResource('contact','Api\ContactController');
 // List articles
 Route::get('articles', 'ArticleController@index');
 
+Route::get('articles/{label}', 'ArticleController@indexlabel');
+
 // List single article
 Route::get('article/{id}', 'ArticleController@show');
 

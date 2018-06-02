@@ -47481,7 +47481,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          article_id: '',
          pagination: {},
          edit: false,
-         search: ""
+         search: "",
+         current_page_url: ""
       };
    },
    created: function created() {
@@ -47496,6 +47497,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       fetchArticles: function fetchArticles(page_url) {
          var _this = this;
 
+         this.current_page_url = page_url;
          var vm = this;
          page_url = page_url || 'api/articles';
          fetch(page_url).then(function (res) {
@@ -47545,7 +47547,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       addArticle: function addArticle() {
          var _this3 = this;
 
-         this.search = "";
          if (this.article.body == "" && this.article.title == "") {
             $('#modalLarge').modal('hide');
             $('body').removeClass('modal-open');
@@ -47554,6 +47555,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          }
 
          if (this.edit == false) {
+            this.search = "";
 
             // Add
             fetch('api/article', {
@@ -47596,7 +47598,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                $('#modalLarge').modal('hide');
                $('body').removeClass('modal-open');
                $('.modal-backdrop').remove();
-               _this3.fetchArticles();
+               _this3.fetchArticles(_this3.current_page_url);
             }).catch(function (err) {
                return console.log(err);
             });
@@ -47718,7 +47720,19 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(0)
+                    _c(
+                      "button",
+                      {
+                        staticClass: "close",
+                        attrs: { type: "button", "aria-label": "Close" },
+                        on: { click: _vm.stopEditing }
+                      },
+                      [
+                        _c("span", { attrs: { "aria-hidden": "true" } }, [
+                          _vm._v("×")
+                        ])
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("textarea", {
@@ -47748,7 +47762,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _vm._m(1)
+                  _vm._m(0)
                 ])
               ]
             )
@@ -47919,14 +47933,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "close", attrs: { type: "submit" } }, [
-      _c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

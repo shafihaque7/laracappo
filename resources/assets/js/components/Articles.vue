@@ -12,8 +12,8 @@
                    <div class="modal-content">
                        <div class="modal-header">
                            <h5 class="modal-title" type="text" id="modalLargeLabel"><input v-model="article.title" placeholder="Title"></h5>
-                           <!-- <button @click="stopEditing" type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
-                                 <button type="submit" class="close" >
+                           <button @click="stopEditing" type="button" class="close" aria-label="Close">
+                                 <!-- <button class="close" > -->
                                <span aria-hidden="true">&times;</span>
                            </button>
 
@@ -84,7 +84,8 @@
                      article_id: '',
                      pagination: {},
                      edit: false,
-                     search: ""
+                     search: "",
+                     current_page_url: ""
                   }
                },
          
@@ -97,6 +98,7 @@
                      this.edit = false;
                   },
                   fetchArticles(page_url){
+                     this.current_page_url = page_url;
                      let vm = this;
                      page_url = page_url || 'api/articles'
                      fetch(page_url)
@@ -145,7 +147,7 @@
                   },
          
                   addArticle() {
-                     this.search = "";
+                     
                      if (this.article.body=="" && this.article.title==""){
                         $('#modalLarge').modal('hide');
                            $('body').removeClass('modal-open');
@@ -156,6 +158,7 @@
                      
                      
                      if (this.edit == false){
+                        this.search = "";
                         
                         // Add
                         fetch('api/article',{
@@ -200,7 +203,7 @@
                            $('#modalLarge').modal('hide');
                            $('body').removeClass('modal-open');
                            $('.modal-backdrop').remove();
-                           this.fetchArticles();
+                           this.fetchArticles(this.current_page_url);
                         })
                         .catch(err => console.log(err));
                         this.edit = false;
