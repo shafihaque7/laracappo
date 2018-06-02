@@ -47465,9 +47465,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
    data: function data() {
@@ -47529,7 +47526,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (res) {
                return res.json();
             }).then(function (data) {
-
                _this2.fetchArticles();
             }).catch(function (err) {
                return console.log(err);
@@ -47537,9 +47533,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          }
       },
       clearArticle: function clearArticle() {
+         $('#modalLarge').modal('show');
          this.edit = false;
          this.article.id = '';
-         this.article_id = '';
+         this.article.article_id = '';
          this.article.title = '';
          this.article.body = '';
       },
@@ -47564,7 +47561,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                _this3.article.title = '';
                _this3.article.body = '';
                // alert('Article Added');
-
                _this3.fetchArticles();
             }).catch(function (err) {
                return console.log(err);
@@ -47586,6 +47582,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                _this3.article.title = '';
                _this3.article.body = '';
                // alert('Article Updated');
+               $('#modalLarge').modal('hide');
                _this3.fetchArticles();
             }).catch(function (err) {
                return console.log(err);
@@ -47615,7 +47612,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return article.title.toLowerCase().match(_this4.search.toLowerCase()) || article.body.toLowerCase().match(_this4.search.toLowerCase());
          });
       }
-
    }
 
 });
@@ -47635,11 +47631,7 @@ var render = function() {
       "button",
       {
         staticClass: "btn btn-primary mb-2",
-        attrs: {
-          type: "button",
-          "data-toggle": "modal",
-          "data-target": "#modalLarge"
-        },
+        attrs: { type: "button" },
         on: {
           click: function($event) {
             _vm.clearArticle()
@@ -47683,7 +47675,7 @@ var render = function() {
                       "h5",
                       {
                         staticClass: "modal-title",
-                        attrs: { id: "modalLargeLabel" }
+                        attrs: { type: "text", id: "modalLargeLabel" }
                       },
                       [
                         _c("input", {
@@ -47695,6 +47687,7 @@ var render = function() {
                               expression: "article.title"
                             }
                           ],
+                          attrs: { placeholder: "Title" },
                           domProps: { value: _vm.article.title },
                           on: {
                             input: function($event) {
@@ -47741,7 +47734,12 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { id: "largetextarea", rows: "10" },
+                    attrs: {
+                      type: "text",
+                      id: "largetextarea",
+                      rows: "10",
+                      placeholder: "Body"
+                    },
                     domProps: { value: _vm.article.body },
                     on: {
                       input: function($event) {

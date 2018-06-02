@@ -2,7 +2,7 @@
 
       <div>
          <h2>Articles</h2>
-         <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modalLarge" @click="clearArticle()">Add</button>
+         <button type="button" class="btn btn-primary mb-2" @click="clearArticle()">Add</button>
            <form @submit.prevent="addArticle">
            <div class="modal fade modal-fullscreen" id="modalLarge" tabindex="-1" role="dialog" aria-labelledby="modalLargeLabel" aria-hidden="true">
                
@@ -10,17 +10,14 @@
                      
                    <div class="modal-content">
                        <div class="modal-header">
-                         
-                           <h5 class="modal-title" id="modalLargeLabel"><input v-model="article.title"></h5>
-  
-
+                           <h5 class="modal-title" type="text" id="modalLargeLabel"><input v-model="article.title" placeholder="Title"></h5>
                            <button @click="stopEditing" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                <span aria-hidden="true">&times;</span>
                            </button>
 
                        </div>
                         
-                           <textarea id="largetextarea"class="form-control" rows="10" v-model="article.body"></textarea>
+                           <textarea type="text" id="largetextarea"class="form-control" rows="10" v-model="article.body" placeholder="Body"></textarea>
                        
                        <div class="modal-footer">
                            <button @click="stopEditing" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -72,164 +69,158 @@
       </template>
       
       <script>
-         export default {
-            data() {
-               return {
-                  articles: [],
-                  sarticles: [], // This is used for shortened articles
-                  article: {
-                     id: '',
-                     title: '',
-                     body: ''
-                  },
-                  article_id: '',
-                  pagination: {},
-                  edit: false,
-                  search: ""
-               }
-            },
-      
-            created() {
-               this.fetchArticles();
-            },
-      
-            methods: {
-               stopEditing(){
-                  this.edit = false;
+            export default {
+               data() {
+                  return {
+                     articles: [],
+                     sarticles: [], // This is used for shortened articles
+                     article: {
+                        id: '',
+                        title: '',
+                        body: ''
+                     },
+                     article_id: '',
+                     pagination: {},
+                     edit: false,
+                     search: ""
+                  }
                },
-               fetchArticles(page_url){
-                  let vm = this;
-                  page_url = page_url || 'api/articles'
-                  fetch(page_url)
-                  .then(res => res.json())
-                  .then(res => {
-                    
-                     this.articles = res.data;
-
          
-                     vm.makePagination(res.meta, res.links);
-                  })
-                  .catch(err => console.log(err));
+               created() {
+                  this.fetchArticles();
                },
-      
-               makePagination(meta, links) {
-                  let pagination = {
-                     current_page: meta.current_page,
-                     last_page: meta.last_page,
-                     next_page_url: links.next,
-                     prev_page_url: links.prev
-                  }
-      
-                   this.pagination = pagination;
-               },
-      
-               deleteArticle(id){
-      
-                  if(confirm('Are you Sure?')){
-                     fetch(`api/article/${id}`, {
-                        method: 'delete'
-                     })
-                     .then(res => res.json())
-                     .then(data => {
-
-                        this.fetchArticles();
-                        
-                     })
-                     .catch(err => console.log(err));
-                  }
-               },
-               clearArticle(){
-                  this.edit=false;
-                  this.article.id = '';
-                  this.article_id = '';
-                  this.article.title = '';
-                  this.article.body = '';
-               },
-      
-               addArticle() {
-                  this.search = "";
-                  
-                  
-                  if (this.edit == false){
-                     
-                     // Add
-                     fetch('api/article',{
-                        method: 'post',
-                        body: JSON.stringify(this.article),
-                        headers:{
-                           'content-type': 'application/json'
-                        }
-                     })
-                     .then(res =>res.json())
-                     .then(data =>{
-                        $('.modal-backdrop').remove();
-                        this.article.title='';
-                        this.article.body='';
-                        // alert('Article Added');
-
-                        this.fetchArticles();
-                        
-                     })
-                     .catch(err => console.log(err));
-                     
-                  }
-                  else{
-                     // Update
-                     console.log("Came here");
-                     
-                     fetch('api/article',{
-                        method: 'put',
-                        body: JSON.stringify(this.article),
-                        headers:{
-                           'content-type': 'application/json'
-                        }
-                     })
-                     .then(res =>res.json())
-                     .then(data =>{
-                        $('.modal-backdrop').remove();
-                        this.article.title='';
-                        this.article.body='';
-                        // alert('Article Updated');
-                        this.fetchArticles();
-                     })
-                     .catch(err => console.log(err));
+         
+               methods: {
+                  stopEditing(){
                      this.edit = false;
+                  },
+                  fetchArticles(page_url){
+                     let vm = this;
+                     page_url = page_url || 'api/articles'
+                     fetch(page_url)
+                     .then(res => res.json())
+                     .then(res => {
+                       
+                        this.articles = res.data;
+            
+                        vm.makePagination(res.meta, res.links);
+                     })
+                     .catch(err => console.log(err));
+                  },
+         
+                  makePagination(meta, links) {
+                     let pagination = {
+                        current_page: meta.current_page,
+                        last_page: meta.last_page,
+                        next_page_url: links.next,
+                        prev_page_url: links.prev
+                     }
+         
+                      this.pagination = pagination;
+                  },
+         
+                  deleteArticle(id){
+         
+                     if(confirm('Are you Sure?')){
+                        fetch(`api/article/${id}`, {
+                           method: 'delete'
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                           this.fetchArticles();
+                           
+                        })
+                        .catch(err => console.log(err));
+                     }
+                  },
+                  clearArticle(){
+                     $('#modalLarge').modal('show');
+                     this.edit=false;
                      this.article.id = '';
                      this.article.article_id = '';
                      this.article.title = '';
                      this.article.body = '';
-
+                  },
+         
+                  addArticle() {
+                     this.search = "";
                      
-      
-                  }
+                     
+                     if (this.edit == false){
+                        
+                        // Add
+                        fetch('api/article',{
+                           method: 'post',
+                           body: JSON.stringify(this.article),
+                           headers:{
+                              'content-type': 'application/json'
+                           }
+                        })
+                        .then(res =>res.json())
+                        .then(data =>{
+                           $('.modal-backdrop').remove();
+                           this.article.title='';
+                           this.article.body='';
+                           // alert('Article Added');
+                           this.fetchArticles();
+                           
+                        })
+                        .catch(err => console.log(err));
+                        
+                     }
+                     else{
+                        // Update
+                        console.log("Came here");
+                        
+                        fetch('api/article',{
+                           method: 'put',
+                           body: JSON.stringify(this.article),
+                           headers:{
+                              'content-type': 'application/json'
+                           }
+                        })
+                        .then(res =>res.json())
+                        .then(data =>{
+                           $('.modal-backdrop').remove();
+                           this.article.title='';
+                           this.article.body='';
+                           // alert('Article Updated');
+                           $('#modalLarge').modal('hide');
+                           this.fetchArticles();
+                        })
+                        .catch(err => console.log(err));
+                        this.edit = false;
+                        this.article.id = '';
+                        this.article.article_id = '';
+                        this.article.title = '';
+                        this.article.body = '';
+                        
+         
+                     }
+                     
+                  },
+                  
+         
+                  editArticle(article) {
+                     $('#modalLarge').modal('show');
+                     this.edit = true;
+                     this.article.id = article.id;
+                     this.article.article_id = article.id;
+                     this.article.title = article.title;
+                     this.article.body = article.body;
+                  },
                   
                },
-               
-      
-               editArticle(article) {
-                  $('#modalLarge').modal('show');
-                  this.edit = true;
-                  this.article.id = article.id;
-                  this.article.article_id = article.id;
-                  this.article.title = article.title;
-                  this.article.body = article.body;
-               },
-               
-            },
-            computed: {
-                  filteredArticles:function(){
-                     return this.articles.filter((article) =>{
-                        console.log(this.search);
-                        return ((article.title).toLowerCase()).match(((this.search).toLowerCase())) || ((article.body).toLowerCase()).match(((this.search).toLowerCase()));
-
-                     });
+               computed: {
+                     filteredArticles:function(){
+                        return this.articles.filter((article) =>{
+                           console.log(this.search);
+                           return ((article.title).toLowerCase()).match(((this.search).toLowerCase())) || ((article.body).toLowerCase()).match(((this.search).toLowerCase()));
+                        });
+                     }
                   }
-
-               }
-      
-         }
-
          
-
-</script>
-
+            }
+            
+   </script>
+   
