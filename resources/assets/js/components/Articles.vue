@@ -52,21 +52,37 @@
                <div class="col-md-4" v-for="article in filteredArticles" @click="editArticle(article)"   v-bind:key="article.id">
            
                  <div class="card mb-4 box-shadow">
-                   <div class="card-body">
-                        <h5 class="card-title">{{ article.title }}</h5>
-                     <p class="card-text">{{ article.sbody }}</p>
-                     <div class="d-flex justify-content-between align-items-center">
-                       <div class="btn-group">
-                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                         <button type="button" class="btn btn-sm btn-outline-secondary" v-on:click.stop @click="deleteArticle(article.id)" id="deleteButton" >Delete</button>
-                       </div>
-                       <small class="text-muted">{{ article.label }}</small>
-                     </div>
-                   </div>
-                 </div>
+                        <div class="card-body">
+                              <h5 class="card-title">{{ article.title }}</h5>
+                           <p class="card-text">{{ article.sbody }}</p>
+                           <div class="d-flex justify-content-between align-items-center">
+                           <div class="btn-group">
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary" v-on:click.stop @click="deleteArticle(article.id)" id="deleteButton" >Delete</button>
+                           </div>
+                           <small class="text-muted">{{ article.label }}</small>
+                           </div>
+                        </div>
+                  </div>
+
+                  <!-- <div class="card mb-4" >
+                        <div class="card-body">
+                          <h5 class="card-title">{{ article.title }}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">{{ article.label }}</h6>
+                          <p class="card-text">{{ article.sbody }}</p>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                      </div> -->
+
+
                </div>
          </div>
+
+         
       </div>
+
+      
       
       </template>
       
