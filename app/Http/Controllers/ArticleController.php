@@ -18,7 +18,7 @@ class ArticleController extends Controller
     {
         // Get articles
  
-        $articles = Article::orderBy('created_at', 'desc')->paginate(20);
+        $articles = Article::orderBy('created_at', 'desc')->paginate(21);
 
         // Return collection of articles as a resource
         return ArticleResource::collection($articles);
