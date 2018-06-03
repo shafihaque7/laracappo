@@ -47533,7 +47533,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (res) {
                return res.json();
             }).then(function (data) {
-               _this2.fetchArticles();
+               _this2.fetchArticles(_this2.current_page_url);
             }).catch(function (err) {
                return console.log(err);
             });

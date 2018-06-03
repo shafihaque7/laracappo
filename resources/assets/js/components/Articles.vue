@@ -134,7 +134,7 @@
                         })
                         .then(res => res.json())
                         .then(data => {
-                           this.fetchArticles();
+                           this.fetchArticles(this.current_page_url);
                            
                         })
                         .catch(err => console.log(err));
