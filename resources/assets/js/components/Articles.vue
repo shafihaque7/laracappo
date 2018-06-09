@@ -4,7 +4,7 @@
          <h2>Articles</h2>
          <button type="button" class="btn btn-primary mb-2" @click="clearArticle()">Add</button>
 
-           <form @submit.prevent="addArticle">
+           <form @submit.prevent="addArticle" >
            <div class="modal modal-fullscreen" id="modalLarge" tabindex="-1" role="dialog" aria-labelledby="modalLargeLabel" aria-hidden="true">
                
                <div class="modal-dialog" role="document">
@@ -166,6 +166,7 @@
                   },
          
                   addArticle() {
+                     console.log("Came to add article");
                      
                      if (this.article.body=="" && this.article.title==""){
                         $('#modalLarge').modal('hide');
