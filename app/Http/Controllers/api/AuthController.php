@@ -25,7 +25,7 @@ class AuthController extends Controller
 		    'form_params' => [
 		        'grant_type' => 'password',
 		        'client_id' => '2',
-		        'client_secret' => env('OAUTH_KEY', '111'),
+		        'client_secret' => env('OAUTH_KEY', '0dFlXVELscFl0kdo0kj7tZ7DsbergQz9BzAgUUxG'),
 		        'username' => $request->email,
 		        'password' => $request->password,
 		        'scope' => '',
@@ -50,7 +50,7 @@ class AuthController extends Controller
 				'form_params' => [
 					'grant_type' => 'password',
 					'client_id' => '2',
-					'client_secret' => env('OAUTH_KEY', '111'),
+					'client_secret' => env('OAUTH_KEY', '0dFlXVELscFl0kdo0kj7tZ7DsbergQz9BzAgUUxG'),
 					'username' => $request->email,
 					'password' => $request->password,
 					'scope' => '',
@@ -69,7 +69,7 @@ class AuthController extends Controller
 		        'grant_type' => 'refresh_token',
 		        'refresh_token' => request('refresh_token'),
 		        'client_id' => '2',
-		        'client_secret' => env('OAUTH_KEY', '111'),
+		        'client_secret' => env('OAUTH_KEY', '0dFlXVELscFl0kdo0kj7tZ7DsbergQz9BzAgUUxG'),
 		        'scope' => '',
 		    ],
 		]);

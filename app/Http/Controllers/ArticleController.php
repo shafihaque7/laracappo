@@ -103,7 +103,8 @@ class ArticleController extends Controller
       $query = "select distinct label from articles" ;
       $post = DB::select($query );
 
-      return Response::json($post);
+      // return Response::json($post);
+      return env('OAUTH_KEY', '111');
 
 
     }
