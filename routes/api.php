@@ -24,6 +24,7 @@ Route::apiResource('contact','Api\ContactController');
 
 // List articles
 Route::get('articles', 'ArticleController@index');
+Route::get('getuniquelabels', 'ArticleController@getuniquelabels');
 
 Route::get('articles/{label}', 'ArticleController@indexlabel');
 

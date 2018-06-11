@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Article;
 use App\Http\Resources\Article as ArticleResource;
+use DB;
+use Response;
 
 class ArticleController extends Controller
 {
@@ -92,5 +94,17 @@ class ArticleController extends Controller
 
         // Return collection of articles as a resource
         return ArticleResource::collection($articles);
+    }
+
+    public function getuniquelabels()
+    {
+      // $arr = array('a' => '1', 'b' => '2', 'c' => '3', 'd' => '4', 'e' => '5');
+
+      $query = "select distinct label from articles" ;
+      $post = DB::select($query );
+
+      return Response::json($post);
+
+
     }
 }
