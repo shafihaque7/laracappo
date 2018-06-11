@@ -9,6 +9,9 @@ use App\Http\Resources\Article as ArticleResource;
 
 class ArticleController extends Controller
 {
+   function __construct(){
+      return $this->middleware('auth:api');
+   }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +21,8 @@ class ArticleController extends Controller
     {
         // Get articles
  
-        $articles = Article::orderBy('created_at', 'desc')->paginate(21);
+        $theid = request()->user()->id;
+        $articles = Article::where('user_id',$theid )->orderBy('created_at', 'desc')->paginate(21);
 
         // Return collection of articles as a resource
         return ArticleResource::collection($articles);
@@ -42,6 +46,7 @@ class ArticleController extends Controller
         $article->title = $request->input('title');
         $article->body = $request->input('body');
         $article->label = "random";
+        $article->user_id = $request->user()->id;
 
         if ($article->save()){
            return new ArticleResource($article);
