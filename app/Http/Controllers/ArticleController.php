@@ -24,7 +24,7 @@ class ArticleController extends Controller
         // Get articles
  
         $theid = request()->user()->id;
-        $articles = Article::where('user_id',$theid )->orderBy('created_at', 'desc')->paginate(21);
+        $articles = Article::where('user_id',$theid )->orderBy('created_at', 'desc')->paginate(1000);
 
         // Return collection of articles as a resource
         return ArticleResource::collection($articles);
@@ -91,7 +91,7 @@ class ArticleController extends Controller
     public function indexlabel($label)
     {
       $theid = request()->user()->id;
-      $articles = Article::where('user_id',$theid )->where('label', $label)->orderBy('created_at', 'desc')->paginate(20);
+      $articles = Article::where('user_id',$theid )->where('label', $label)->orderBy('created_at', 'desc')->paginate(1000);
 
         // Return collection of articles as a resource
         return ArticleResource::collection($articles);
