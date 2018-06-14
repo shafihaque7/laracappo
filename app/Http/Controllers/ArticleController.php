@@ -47,7 +47,7 @@ class ArticleController extends Controller
         $article->id = $request->input('article_id');
         $article->title = $request->input('title');
         $article->body = $request->input('body');
-        $article->label = "random";
+        $article->label = $request->input('label');
         $article->user_id = $request->user()->id;
 
         if ($article->save()){
@@ -90,7 +90,8 @@ class ArticleController extends Controller
 
     public function indexlabel($label)
     {
-      $articles = Article::where('label', $label)->orderBy('created_at', 'desc')->paginate(20);
+      $theid = request()->user()->id;
+      $articles = Article::where('user_id',$theid )->where('label', $label)->orderBy('created_at', 'desc')->paginate(20);
 
         // Return collection of articles as a resource
         return ArticleResource::collection($articles);
@@ -100,7 +101,9 @@ class ArticleController extends Controller
     {
       // $arr = array('a' => '1', 'b' => '2', 'c' => '3', 'd' => '4', 'e' => '5');
 
-      $query = "select distinct label from articles" ;
+      $theid = request()->user()->id;
+
+      $query = "select distinct label from articles where user_id = $theid" ;
       $post = DB::select($query );
 
       return Response::json($post);
