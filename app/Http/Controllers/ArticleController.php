@@ -45,10 +45,12 @@ class ArticleController extends Controller
         $article = $request->isMethod('put') ? Article::findorFail($request->article_id) : new Article;
 
         $article->id = $request->input('article_id');
-        $article->title = $request->input('title');
-        $article->body = $request->input('body');
-        $article->label = $request->input('label');
+        $article->title = $request->input('title') ? $request -> input('title') : "";
+        $article->body = $request -> input('body') ? $request -> input('body') : "";
+        $article->label = $request->input('label') ? $request -> input('label') : "";
         $article->user_id = $request->user()->id;
+
+        
 
         if ($article->save()){
            return new ArticleResource($article);
