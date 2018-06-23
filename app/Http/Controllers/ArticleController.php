@@ -105,7 +105,7 @@ class ArticleController extends Controller
 
       $theid = request()->user()->id;
 
-      $query = "select distinct label from articles where user_id = $theid" ;
+      $query = "select distinct label from articles where user_id = $theid and not label = 'All Labels'" ;
       $post = DB::select($query );
 
       return Response::json($post);
