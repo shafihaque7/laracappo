@@ -26,6 +26,24 @@ class ArticleController extends Controller
         $theid = request()->user()->id;
         $articles = Article::where('user_id',$theid )->orderBy('created_at', 'desc')->paginate(1000);
 
+        // This is to add row to the json
+        $articles->map(function($post){
+         //   $post['rows'] = (strlen($post['body']))/10;
+
+            if ((strlen($post['body']) /10) < 10 ){
+               $post['rows'] = 10;
+            }
+            else if ((strlen($post['body']) /10) > 30 ){
+
+               $post['rows'] = 30;
+            }
+            else{
+               $post['rows'] = (strlen($post['body']) /10);
+            }
+           
+           return $post;
+        });
+         // return $articles;
         // Return collection of articles as a resource
         return ArticleResource::collection($articles);
     }
@@ -94,6 +112,23 @@ class ArticleController extends Controller
     {
       $theid = request()->user()->id;
       $articles = Article::where('user_id',$theid )->where('label', $label)->orderBy('created_at', 'desc')->paginate(1000);
+      // This is to add row to the json
+      $articles->map(function($post){
+         //   $post['rows'] = (strlen($post['body']))/10;
+
+            if ((strlen($post['body']) /10) < 10 ){
+               $post['rows'] = 10;
+            }
+            else if ((strlen($post['body']) /10) > 30 ){
+
+               $post['rows'] = 30;
+            }
+            else{
+               $post['rows'] = (strlen($post['body']) /10);
+            }
+           
+           return $post;
+        });
 
         // Return collection of articles as a resource
         return ArticleResource::collection($articles);
@@ -105,7 +140,7 @@ class ArticleController extends Controller
 
       $theid = request()->user()->id;
 
-      $query = "select distinct label from articles where user_id = $theid and not label = 'All Labels'" ;
+      $query = "select distinct label from articles where user_id = $theid and not label = 'All Labels' ORDER BY label" ;
       $post = DB::select($query );
 
       return Response::json($post);

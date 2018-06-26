@@ -17,7 +17,8 @@ class Article extends Resource
             'title' => $this->title,
             'body' => $this->body,
             'sbody' => substr($this->body, 0, 100),
-            'label' => $this->label
+            'label' => $this->label,
+            'rows' => $this->rows
 
         ];
     }
