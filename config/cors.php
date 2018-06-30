@@ -21,7 +21,7 @@ return [
             // '*',
             'https://shafihaque7.github.io',
             'http://localhost:8080',
-            'http://altkeep.me',
+            'https://altkeep.me',
         ],
 
         'allow_methods' => [
