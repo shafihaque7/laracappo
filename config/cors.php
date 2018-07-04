@@ -22,7 +22,7 @@ return [
             'https://shafihaque7.github.io',
             'http://localhost:8080',
             'https://altkeep.me',
-            '192.168.0.8:8080',
+            'http://192.168.0.8:8080',
        
         ],
 
