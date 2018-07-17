@@ -9,8 +9,9 @@
 
 ## About Laravel
 
-Laravel is a php web application framework with expressive, elegant syntax. This restful api is created using laravel.
+Laravel is a php web application framework with expressive, elegant syntax. This restful api is created using laravel. It is currently being hosted on AWS ec2 with AWS aurora database. 
 
+- Uses JWT for user authentication using laravel passport.
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
 - Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
