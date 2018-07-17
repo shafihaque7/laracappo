@@ -7,9 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-# Front end for this api
-https://github.com/shafihaque7/shafihaque7.github.io
-
 ## Laravel
 
 Laravel is a php web application framework with expressive, elegant syntax. This restful api is created using laravel. It is currently being hosted on AWS ec2 with AWS aurora database. 
@@ -22,6 +19,9 @@ Laravel is a php web application framework with expressive, elegant syntax. This
 - Database agnostic [schema migrations](https://laravel.com/docs/migrations).
 - [Robust background job processing](https://laravel.com/docs/queues).
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+
+# Front end for this api
+https://github.com/shafihaque7/shafihaque7.github.io
 
 ## License
 
