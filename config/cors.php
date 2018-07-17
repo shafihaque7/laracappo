@@ -18,11 +18,11 @@ return [
     'default_profile' => [
 
         'allow_origins' => [
-            // '*',
-            'https://shafihaque7.github.io',
-            'http://localhost:8080',
-            'https://altkeep.me',
-            'http://192.168.0.8:8080',
+            '*',
+            // 'https://shafihaque7.github.io',
+            // 'http://localhost:8080',
+            // 'https://altkeep.me',
+            // 'http://192.168.0.8:8080',
        
         ],
 
