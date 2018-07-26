@@ -148,4 +148,10 @@ class ArticleController extends Controller
 
 
     }
+    public function testitout()
+    {
+      return "cool";
+
+
+    }
 }
