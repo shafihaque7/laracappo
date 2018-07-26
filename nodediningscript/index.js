@@ -7,14 +7,14 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-// const data = {
-//    name: "Stevenson",
-//    food: "Hoogggggffla"
-// }
+ const data = {
+    name: "Stevenson",
+    food: "Hoogggggffla"
+ }
 
-// db.collection('users').doc().set(data).then(() => {
-//    console.log('new thing was added')
-// })
+ db.collection('users').doc().set(data).then(() => {
+    console.log('new thing was added')
+ })
 
 var cityRef = db.collection('users').doc('food');
 var getDoc = cityRef.get()
