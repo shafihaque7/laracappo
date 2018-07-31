@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase-admin": "^5.13.1"
+    "cheerio": "^1.0.0-rc.2",
+    "dateformat": "^3.0.3",
+    "firebase-admin": "^5.13.1",
+    "request": "^2.87.0"
   }
 }
