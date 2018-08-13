@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class HomeController extends Controller
 {
     /**
@@ -29,7 +30,7 @@ class HomeController extends Controller
     {
       $output = shell_exec('node ../../../nodediningscript/index.js');
       
-      return $output;
+      return  "Hello working";
 
 
     }

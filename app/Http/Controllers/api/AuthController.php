@@ -6,10 +6,8 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-$keyForIt = 'OQCG5AyBtrD8PSNA9F379u4qQWCkVFi8ZhsuyLAO';
 class AuthController extends Controller
-{
-	$keyForIt = 'OQCG5AyBtrD8PSNA9F379u4qQWCkVFi8ZhsuyLAO';    
+{  
 	public function register(Request $request){
 		$request->validate([
 			'email'=>'required',
@@ -27,7 +25,7 @@ class AuthController extends Controller
 		    'form_params' => [
 		        'grant_type' => 'password',
 		        'client_id' => '2',
-		        'client_secret' => env('OAUTH_KEY', $keyForIt),
+		        'client_secret' => env('OAUTH_KEY', 'OQCG5AyBtrD8PSNA9F379u4qQWCkVFi8ZhsuyLAO'),
 		        'username' => $request->email,
 		        'password' => $request->password,
 		        'scope' => '',
@@ -52,7 +50,7 @@ class AuthController extends Controller
 				'form_params' => [
 					'grant_type' => 'password',
 					'client_id' => '2',
-					'client_secret' => env('OAUTH_KEY',$keyForIt),
+					'client_secret' => env('OAUTH_KEY','OQCG5AyBtrD8PSNA9F379u4qQWCkVFi8ZhsuyLAO'),
 					'username' => $request->email,
 					'password' => $request->password,
 					'scope' => '',
@@ -71,7 +69,7 @@ class AuthController extends Controller
 		        'grant_type' => 'refresh_token',
 		        'refresh_token' => request('refresh_token'),
 		        'client_id' => '2',
-		        'client_secret' => env('OAUTH_KEY', $keyForIt),
+		        'client_secret' => env('OAUTH_KEY', 'OQCG5AyBtrD8PSNA9F379u4qQWCkVFi8ZhsuyLAO'),
 		        'scope' => '',
 		    ],
 		]);
